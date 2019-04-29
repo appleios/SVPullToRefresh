@@ -170,6 +170,7 @@ UIEdgeInsets scrollViewOriginalContentInsets;
 }
 
 - (void)layoutSubviews {
+    [super layoutSubviews];
     self.activityIndicatorView.center = CGPointMake(self.bounds.size.width/2, self.bounds.size.height/2);
 }
 
@@ -208,7 +209,7 @@ UIEdgeInsets scrollViewOriginalContentInsets;
         }
     }
     else if([keyPath isEqualToString:@"contentSize"]) {
-        [self layoutSubviews];
+        [self layoutIfNeeded];
         self.frame = CGRectMake(0, self.scrollView.contentSize.height, self.bounds.size.width, SVInfiniteScrollingViewHeight);
     }
 }
